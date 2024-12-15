@@ -12,6 +12,7 @@ import {
 } from "@lib/data"
 import { Region } from "@medusajs/medusa"
 import ProductTemplate from "@modules/products/templates"
+import { APP_CONFIG } from "config/app-config"
 
 type Props = {
   params: { countryCode: string; handle: string }
@@ -58,10 +59,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.title} | Medusa Store`,
+    title: `${product.title} | ${APP_CONFIG.STORE_NAME}`,
     description: `${product.title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
+      title: `${product.title} | ${APP_CONFIG.STORE_NAME}`,
       description: `${product.title}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },

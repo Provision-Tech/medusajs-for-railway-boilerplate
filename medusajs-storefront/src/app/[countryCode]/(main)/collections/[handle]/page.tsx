@@ -8,6 +8,7 @@ import {
 } from "@lib/data"
 import CollectionTemplate from "@modules/collections/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { APP_CONFIG } from "config/app-config"
 
 type Props = {
   params: { handle: string; countryCode: string }
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const metadata = {
-    title: `${collection.title} | Medusa Store`,
+    title: `${collection.title} | ${APP_CONFIG.STORE_NAME}`,
     description: `${collection.title} collection`,
   } as Metadata
 
